@@ -1,6 +1,12 @@
 language: node_js
 node_js:
   - 0.10
+  - 4.0
+  # dropped unsupport node versions on power arch
+jobs: 
+  exclude:
+    - arch: ppc64le
+      node_js: "0.10"
 before_script:
   - npm install -g grunt-cli
 script: grunt ci --verbose
